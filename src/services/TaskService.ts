@@ -40,7 +40,11 @@ export class TaskService{
   }
 
   delete(taskDto: TaskDTO){
+    if(taskDto.title !== ""){
 
+      const index = task.findIndex((task)=> task.id === taskDto.id)
+      return task.splice(index, 1)
+    }
   }
 
   list(){

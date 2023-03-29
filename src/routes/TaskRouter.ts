@@ -20,3 +20,8 @@ taskRouter.get('/', (request, response)=>{
   const data = taskService.list()
   response.json(data)
 })
+
+taskRouter.delete('/delete', (request, response)=>{
+  const data = taskService.delete(request.body)
+  response.json(data)
+})
