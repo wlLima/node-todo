@@ -43,9 +43,9 @@ export class TaskService{
 
   delete(id: string){
     if(id !== ""){
-      const index = task.findIndex((task)=> task.id === id)
+      const index = task.findIndex((tasks)=> tasks.id === id)
 
-      if(index === 0){
+      if(index >= 0){
         const taskDeleted = task.splice(index, 1)
         return taskDeleted
       }
