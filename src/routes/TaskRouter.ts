@@ -11,17 +11,18 @@ taskRouter.post('/create', (request, response)=>{
   response.json(data)
 })
 
-taskRouter.put('/update', (request, response)=>{
-  const data = taskService.update(request.body)
+taskRouter.put('/update/:id', (request, response)=>{
+  const data = taskService.update(request.body, request.params.id)
   response.json(data)
 })
 
-taskRouter.get('/', (request, response)=>{
+taskRouter.get('/list', (request, response)=>{
   const data = taskService.list()
   response.json(data)
 })
 
-taskRouter.delete('/delete', (request, response)=>{
-  const data = taskService.delete(request.body)
+taskRouter.delete('/delete/:id', (request, response)=>{
+  const { id } = request.params
+  const data = taskService.delete(id)
   response.json(data)
 })
